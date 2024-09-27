@@ -1,10 +1,11 @@
-package co.edu.javeriana.msc.turismo.service_publication_microservice.dto;
+package co.edu.javeriana.msc.turismo.service_query_microservice.dtos;
 
-import co.edu.javeriana.msc.turismo.service_publication_microservice.enums.CRUDEventType;
+import co.edu.javeriana.msc.turismo.service_query_microservice.enums.CRUDEventType;
 import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor

@@ -1,12 +1,20 @@
-package co.edu.javeriana.msc.turismo.service_publication_microservice.dto;
+package co.edu.javeriana.msc.turismo.service_query_microservice.dtos;
 
-import co.edu.javeriana.msc.turismo.service_publication_microservice.enums.ServiceType;
+import co.edu.javeriana.msc.turismo.service_query_microservice.enums.ServiceType;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
+@Document(collection = "services")
 public record SuperService(
+        @Id
         @NotNull(message = "The id of the service is required")
         Long id,
         @NotNull(message = "The id of the supplier is required")
@@ -32,6 +40,5 @@ public record SuperService(
         LocationResponse origin,
         String company
 ) {
-//        public SuperService(Long id, String createdBy, LocationResponse destination, String name, String description, BigDecimal unitValue, LocalDateTime startDate, LocalDateTime endDate, Object foodType, AccommodationTypeResponse accommodationType, Integer capacity) {
-//        }
+
 }

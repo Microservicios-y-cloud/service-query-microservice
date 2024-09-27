@@ -1,4 +1,4 @@
-package co.edu.javeriana.msc.turismo.service_publication_microservice.enums;
+package co.edu.javeriana.msc.turismo.service_query_microservice.enums;
 
 public enum CRUDEventType {
     CREATE,

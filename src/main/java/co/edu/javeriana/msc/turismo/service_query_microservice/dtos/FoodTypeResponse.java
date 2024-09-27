@@ -1,4 +1,4 @@
-package co.edu.javeriana.msc.turismo.service_publication_microservice.dto;
+package co.edu.javeriana.msc.turismo.service_query_microservice.dtos;
 
 public record FoodTypeResponse (
     Long foodTypeId,
