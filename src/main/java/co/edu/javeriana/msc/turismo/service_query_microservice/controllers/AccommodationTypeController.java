@@ -1,29 +1,23 @@
-package co.edu.javeriana.msc.turismo.service_publication_microservice.controllers;
+package co.edu.javeriana.msc.turismo.service_query_microservice.controllers;
 
-import java.util.List;
-
+import co.edu.javeriana.msc.turismo.service_query_microservice.dto.AccommodationTypeResponse;
+import co.edu.javeriana.msc.turismo.service_query_microservice.services.AccommodationTypeService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.javeriana.msc.turismo.service_publication_microservice.dto.FoodServiceRequest;
-import co.edu.javeriana.msc.turismo.service_publication_microservice.dto.FoodServiceResponse;
-import co.edu.javeriana.msc.turismo.service_publication_microservice.dto.AccommodationTypeResponse;
-import co.edu.javeriana.msc.turismo.service_publication_microservice.services.AccommodationTypeService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/services/AccommodationType")
+@RequestMapping("/types/accommodation")
 @RequiredArgsConstructor
 public class AccommodationTypeController {
-    private final AccommodationTypeService AccommodationTypeService;
+    private final co.edu.javeriana.msc.turismo.service_query_microservice.services.AccommodationTypeService AccommodationTypeService;
 
     @GetMapping("/{service-id}")
     public ResponseEntity<AccommodationTypeResponse> getService(

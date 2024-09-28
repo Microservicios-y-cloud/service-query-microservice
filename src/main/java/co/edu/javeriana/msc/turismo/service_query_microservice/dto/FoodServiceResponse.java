@@ -1,10 +1,17 @@
-package co.edu.javeriana.msc.turismo.service_publication_microservice.dto;
+package co.edu.javeriana.msc.turismo.service_query_microservice.dto;
 
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 public record FoodServiceResponse(
-        ServiceResponse serviceResponse,
+        Long id,
+        String createdBy,
+        LocationResponse destination,
+        String name,
+        String description,
+        BigDecimal unitValue,
+        LocalDateTime startDate,
+        LocalDateTime endDate,
         FoodTypeResponse foodType
 ) {
 }

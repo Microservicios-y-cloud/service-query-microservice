@@ -1,8 +1,8 @@
 type Query {
-    servicesByKeyword(keyword: String!): [ServiceResponse]
+    servicesByKeyword(keyword: String!): [SuperService]
 }
 
-type ServiceResponse {
+type SuperService {
     id: ID
     name: String
     description: String

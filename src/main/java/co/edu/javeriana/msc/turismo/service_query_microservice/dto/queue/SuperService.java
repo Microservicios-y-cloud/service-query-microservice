@@ -1,10 +1,11 @@
-package co.edu.javeriana.msc.turismo.service_query_microservice.dtos;
+package co.edu.javeriana.msc.turismo.service_query_microservice.dto.queue;
 
+import co.edu.javeriana.msc.turismo.service_query_microservice.dto.AccommodationTypeResponse;
+import co.edu.javeriana.msc.turismo.service_query_microservice.dto.FoodTypeResponse;
+import co.edu.javeriana.msc.turismo.service_query_microservice.dto.LocationResponse;
+import co.edu.javeriana.msc.turismo.service_query_microservice.dto.TransportTypeResponse;
 import co.edu.javeriana.msc.turismo.service_query_microservice.enums.ServiceType;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

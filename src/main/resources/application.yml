@@ -1,10 +1,14 @@
 spring:
   application:
     name: service-query-microservice
+  jackson:
+    default-property-inclusion: non_null
   
   config:
     import: configserver:http://localhost:8888
   cloud:
+    function:
+      definition: receiveMessage;receiveServiceType;receiveLocation
     stream:
       kafka:
         binder:
@@ -18,6 +22,18 @@ spring:
         # 0: Index of the binding. This allows the same method to receive from multiple queues
         receiveMessage-in-0:
           destination: query-services-queue
+          # Group is necessary to ensure that this
+          # consumer receives all messages sent while
+          # it was offline
+          group: service-group
+        receiveServiceType-in-0:
+          destination: query-types-queue
+          # Group is necessary to ensure that this
+          # consumer receives all messages sent while
+          # it was offline
+          group: service-type-group
+        receiveLocation-in-0:
+          destination: query-locations-queue
           # Group is necessary to ensure that this
           # consumer receives all messages sent while
           # it was offline

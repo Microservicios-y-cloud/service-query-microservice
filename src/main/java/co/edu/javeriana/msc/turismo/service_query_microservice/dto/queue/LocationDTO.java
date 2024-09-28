@@ -1,7 +1,7 @@
-package co.edu.javeriana.msc.turismo.service_publication_microservice.queue.dto;
+package co.edu.javeriana.msc.turismo.service_query_microservice.dto.queue;
 
-import co.edu.javeriana.msc.turismo.service_publication_microservice.dto.LocationResponse;
-import co.edu.javeriana.msc.turismo.service_publication_microservice.enums.CRUDEventType;
+import co.edu.javeriana.msc.turismo.service_query_microservice.dto.LocationResponse;
+import co.edu.javeriana.msc.turismo.service_query_microservice.enums.CRUDEventType;
 import lombok.*;
 
 import java.io.Serializable;
