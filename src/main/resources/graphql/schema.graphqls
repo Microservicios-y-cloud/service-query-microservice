@@ -4,13 +4,22 @@ type Query {
 
 type SuperService {
     id: ID
+    createdBy: String
+    destination: Location
     name: String
     description: String
     unitValue: Float
-    destinationId: ID
-    country: String
-    city: String
     startDate: String
     endDate: String
-    createdBy: String
+    serviceType: String
+}
+
+type Location {
+    id: ID
+    address: String
+    latitude: Float
+    longitude: Float
+    country: String
+    city: String
+    municipality: String
 }
