@@ -6,6 +6,7 @@ import co.edu.javeriana.msc.turismo.service_query_microservice.dto.LocationRespo
 import co.edu.javeriana.msc.turismo.service_query_microservice.dto.TransportTypeResponse;
 import co.edu.javeriana.msc.turismo.service_query_microservice.enums.ServiceType;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -41,5 +42,4 @@ public record SuperService(
         LocationResponse origin,
         String company
 ) {
-
 }
