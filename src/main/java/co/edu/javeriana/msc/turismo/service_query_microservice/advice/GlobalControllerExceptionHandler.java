@@ -1,11 +1,11 @@
 package co.edu.javeriana.msc.turismo.service_query_microservice.advice;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.ws.rs.ProcessingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.http.HttpStatus;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
