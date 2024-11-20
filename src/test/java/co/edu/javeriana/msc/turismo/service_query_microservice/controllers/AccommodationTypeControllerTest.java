@@ -41,9 +41,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AccommodationTypeControllerTest {
 
     @Autowired
-    private GraphQlTester graphQlTester;
-
-    @Autowired
     private AccommodationTypeService accommodationTypeService;
 
     @Container

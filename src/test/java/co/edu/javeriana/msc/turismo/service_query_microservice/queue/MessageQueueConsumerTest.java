@@ -1,12 +1,14 @@
 package co.edu.javeriana.msc.turismo.service_query_microservice.queue;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import co.edu.javeriana.msc.turismo.service_query_microservice.dto.LocationResponse;
 import co.edu.javeriana.msc.turismo.service_query_microservice.dto.queue.LocationDTO;
+import co.edu.javeriana.msc.turismo.service_query_microservice.enums.CRUDEventType;
 import co.edu.javeriana.msc.turismo.service_query_microservice.repository.LocationRepository;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -33,6 +35,8 @@ import org.testcontainers.utility.DockerImageName;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 @SpringBootTest
 @Testcontainers
@@ -73,10 +77,10 @@ class MessageQueueConsumerTest {
         kafkaTemplate = new KafkaTemplate<>(producerFactory);
     }
 
-
-
-    static final LocationResponse locationResponse = new LocationResponse(1L, "testAddress",
+    static final LocationResponse mockLocation = new LocationResponse(1L, "testAddress",
             10.2, 20.3, "testCountry", "testCity", "testMun");
+
+    static LocationDTO locationDTO = new LocationDTO(LocalDateTime.now(), CRUDEventType.CREATE, mockLocation);
 
     @BeforeAll
     static void setup() {
@@ -86,7 +90,6 @@ class MessageQueueConsumerTest {
         createKafkaProducer();
 
         Gson gson = new Gson();
-        LocationDTO locationDTO = new LocationDTO();
         kafkaTemplate.send("service-type-group", gson.toJson(locationDTO));
     }
 
