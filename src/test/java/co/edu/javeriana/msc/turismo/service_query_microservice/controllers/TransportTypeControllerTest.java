@@ -57,8 +57,8 @@ class TransportTypeControllerTest {
         registry.add("spring.data.mongodb.port", mongo::getFirstMappedPort);
         registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
     }
-    static final TransportTypeResponse mockTransportService1 = new TransportTypeResponse(1L, "transportIdTest1");
-    static final TransportTypeResponse mockTransportService2 = new TransportTypeResponse(2L, "transportIdTest2");
+    static final TransportTypeResponse mockTransportService1 = new TransportTypeResponse(777L, "transportIdTest1");
+    static final TransportTypeResponse mockTransportService2 = new TransportTypeResponse(778L, "transportIdTest2");
 
     static KafkaConsumer<Object, Object> mockKafkaConsumer;
 
@@ -98,8 +98,8 @@ class TransportTypeControllerTest {
     @Order(1)
     void getService() throws Exception {
         //Buscar si en la BDD está el servicio con id 1
-        if(transportTypeService.findById(1L) != null){
-            assertThat(transportTypeService.findById(1L)).isEqualTo(mockTransportService1);
+        if(transportTypeService.findById(777L) != null){
+            assertThat(transportTypeService.findById(778L)).isEqualTo(mockTransportService1);
         }
     }
 

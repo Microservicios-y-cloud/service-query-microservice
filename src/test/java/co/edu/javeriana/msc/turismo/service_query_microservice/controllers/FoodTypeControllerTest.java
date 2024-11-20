@@ -54,8 +54,8 @@ class FoodTypeControllerTest {
         registry.add("spring.data.mongodb.port", mongo::getFirstMappedPort);
         registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
     }
-    static final FoodTypeResponse mockFoodService1 = new FoodTypeResponse(1L, "foodIdTest1");
-    static final FoodTypeResponse mockFoodService2 = new FoodTypeResponse(2L, "foodIdTest2");
+    static final FoodTypeResponse mockFoodService1 = new FoodTypeResponse(777L, "foodIdTest1");
+    static final FoodTypeResponse mockFoodService2 = new FoodTypeResponse(778L, "foodIdTest2");
 
     static KafkaConsumer<Object, Object> mockKafkaConsumer;
 
@@ -95,8 +95,8 @@ class FoodTypeControllerTest {
     @Order(1)
     void getService() throws Exception {
         //Buscar si en la BDD está el servicio con id 1
-        if(foodTypeService.findById(1L) != null){
-            assertThat(foodTypeService.findById(1L)).isEqualTo(mockFoodService1);
+        if(foodTypeService.findById(777L) != null){
+            assertThat(foodTypeService.findById(777L)).isEqualTo(mockFoodService1);
         }
     }
 

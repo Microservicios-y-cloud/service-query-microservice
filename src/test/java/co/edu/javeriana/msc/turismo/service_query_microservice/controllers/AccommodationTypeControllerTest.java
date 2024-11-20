@@ -55,8 +55,8 @@ class AccommodationTypeControllerTest {
         registry.add("spring.data.mongodb.port", mongo::getFirstMappedPort);
         registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
     }
-    static final AccommodationTypeResponse mockAccomodationService1 = new AccommodationTypeResponse(1L, "accommodationIdTest1");
-    static final AccommodationTypeResponse mockAccomodationService2 = new AccommodationTypeResponse(2L, "accommodationIdTest2");
+    static final AccommodationTypeResponse mockAccomodationService1 = new AccommodationTypeResponse(777L, "accommodationIdTest1");
+    static final AccommodationTypeResponse mockAccomodationService2 = new AccommodationTypeResponse(778L, "accommodationIdTest2");
 
     static KafkaConsumer<Object, Object> mockKafkaConsumer;
 
@@ -96,8 +96,8 @@ class AccommodationTypeControllerTest {
     @Order(1)
     void getService() throws Exception {
         //Buscar si en la BDD está el servicio con id 1
-        if(accommodationTypeService.findById(1L) != null){
-            assertThat(accommodationTypeService.findById(1L)).isEqualTo(mockAccomodationService1);
+        if(accommodationTypeService.findById(777L) != null){
+            assertThat(accommodationTypeService.findById(777L)).isEqualTo(mockAccomodationService1);
         }
     }
 

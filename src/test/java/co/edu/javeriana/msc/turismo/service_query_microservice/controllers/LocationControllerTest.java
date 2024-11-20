@@ -51,9 +51,9 @@ class LocationControllerTest {
         registry.add("spring.data.mongodb.port", mongo::getFirstMappedPort);
         registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
     }
-    static final LocationResponse mockLocation1 = new LocationResponse(1L, "testAddress",
+    static final LocationResponse mockLocation1 = new LocationResponse(777L, "testAddress",
             10.2, 20.3, "testCountry", "testCity", "testMun");
-    static final LocationResponse mockLocation2 = new LocationResponse(2L, "testAddress",
+    static final LocationResponse mockLocation2 = new LocationResponse(778L, "testAddress",
             10.2, 20.3, "testCountry", "testCity", "testMun");
 
     static KafkaConsumer<Object, Object> mockKafkaConsumer;
@@ -94,8 +94,8 @@ class LocationControllerTest {
     @Order(1)
     void getService() throws Exception {
         //Buscar si en la BDD está el servicio con id 1
-        if(locationService.findById(1L) != null){
-            assertThat(locationService.findById(1L)).isEqualTo(mockLocation1);
+        if(locationService.findById(777L) != null){
+            assertThat(locationService.findById(777L)).isEqualTo(mockLocation1);
         }
     }
 

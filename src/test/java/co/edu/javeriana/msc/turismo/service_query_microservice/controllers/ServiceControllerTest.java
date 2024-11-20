@@ -65,83 +65,59 @@ class ServiceControllerTest {
     }
 
     // Crear el objeto SuperService con información inventada
-    static final LocationResponse destination = new LocationResponse(
-            1L,
-            "Calle de Gran Vía, 1",
-            40.4200,
-            -3.7050,
-            "España",
-            "Madrid",
-            "Centro"
-    );
-
-    static final LocationResponse origin = new LocationResponse(
-            2L,
-            "Carrer de Pau Claris, 30",
-            41.3851,
-            2.1734,
-            "España",
-            "Barcelona",
-            "Eixample"
-    );
-
     static final ServiceType serviceType = ServiceType.ACCOMMODATION;
-    static final FoodTypeResponse foodType = new FoodTypeResponse(1L, "Vegetariana");
-    static final AccommodationTypeResponse accommodationType = new AccommodationTypeResponse(1L, "Hotel de lujo");
-    static final TransportTypeResponse transportType = new TransportTypeResponse(1L, "Autobús turístico");
-
     static final SuperService superServicemock1 = new SuperService(
-            1L,
+            777L,
             "TravelAgency",
-            destination,
+            null,
             "Luxury Disney",
             "A guided luxury tour around the top attractions of Madrid",
             new BigDecimal("299.99"),
             LocalDateTime.of(2024, 12, 1, 9, 0),
             LocalDateTime.of(2024, 12, 7, 18, 0),
             serviceType,
-            foodType,
-            accommodationType,
+            null,
+            null,
             30,
-            transportType,
-            origin,
-            "TravelWorld Ltd."
+            null,
+            null,
+            "serviceTest"
     );
 
 
     static final SuperService superServicemock2 = new SuperService(
-            2L,
+            778L,
             "TravelCompany",
-            destination,
+            null,
             "Luxury Tour",
             "A guided luxury tour around the top attractions of Madrid",
             new BigDecimal("299.99"),
             LocalDateTime.of(2024, 12, 1, 9, 0),
             LocalDateTime.of(2024, 12, 7, 18, 0),
             serviceType,
-            foodType,
-            accommodationType,
+            null,
+            null,
             30,
-            transportType,
-            origin,
-            "TravelWorld Ltd."
+            null,
+            null,
+            "serviceTest"
     );
 
     static final SuperService superServicemock3 = new SuperService(
-            3L,
+            779L,
             "TravelCompany",
-            destination,
+            null,
             "Luxury Tour",
             "A guided luxury tour around the top attractions of Madrid",
             new BigDecimal("299.99"),
             LocalDateTime.of(2024, 12, 1, 9, 0),
             LocalDateTime.of(2024, 12, 7, 18, 0),
             serviceType,
-            foodType,
-            accommodationType,
+            null,
+            null,
             30,
-            transportType,
-            origin,
+            null,
+            null,
             "Disney"
     );
 
@@ -182,9 +158,8 @@ class ServiceControllerTest {
 
     @Test
     void getService() {
-        serviceService.findById(1L);
-        if(serviceService.findById(1L) != null){
-            assertThat(serviceService.findById(1L)).isEqualTo(superServicemock1);
+        if(serviceService.findById(777L) != null){
+            assertThat(serviceService.findById(777L)).isEqualTo(superServicemock1);
         }
     }
 
@@ -198,9 +173,8 @@ class ServiceControllerTest {
 
     @Test
     void findAllBySupplier() {
-        serviceService.findAllBySupplier("TravelCompany");
-        if(serviceService.findAllBySupplier("TravelCompany") != null){
-            assertThat(serviceService.findAllBySupplier("TravelCompany")).contains(superServicemock2, superServicemock3);
+        if(serviceService.findAllBySupplier("serviceTest") != null){
+            assertThat(serviceService.findAllBySupplier("serviceTest")).contains(superServicemock2, superServicemock3);
         }
     }
 
